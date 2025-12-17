@@ -10,14 +10,15 @@ const config = {
   favicon: 'img/logo.svg',
   
   // Set the production url of your site here
-  url: 'https://your-website-domain.com',
+  url: 'https://Mrsaleem110.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<org-name>/<repo-name>/'
-  baseUrl: '/',
+  baseUrl: '/Physical-AI-humanoid-robotic-chatbot-book/',
+  trailingSlash: true,
 
   // GitHub pages deployment config.
-  organizationName: 'your-org', // Usually your GitHub org/user name.
-  projectName: 'humanoid-robotics-book', // Usually your repo name.
+  organizationName: 'Mrsaleem110', // Usually your GitHub org/user name.
+  projectName: 'Physical-AI-humanoid-robotic-chatbot-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
