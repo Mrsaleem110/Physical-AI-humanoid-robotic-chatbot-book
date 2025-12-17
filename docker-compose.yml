@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  libretranslate:
+    image: libretranslate/libretranslate
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+    environment:
+      - LT_LOG_LEVEL=INFO
+      - LT_REQUIRE_SERVICE_KEY=false
+      - LT_LOAD_ONLY=en,ur,hi,es,ja,zh,fr,de

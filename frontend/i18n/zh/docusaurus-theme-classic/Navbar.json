@@ -1,0 +1,22 @@
+{
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "语言",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "translation.button.label": {
+    "message": "翻译",
+    "description": "The label for the translation button"
+  },
+  "translation.dropdown.label": {
+    "message": "选择语言",
+    "description": "The label for the language selection dropdown"
+  },
+  "translation.status.translated": {
+    "message": "内容已翻译为 {language}",
+    "description": "Status message when content is translated"
+  },
+  "translation.status.original": {
+    "message": "使用原始语言",
+    "description": "Status message when using original language"
+  }
+}

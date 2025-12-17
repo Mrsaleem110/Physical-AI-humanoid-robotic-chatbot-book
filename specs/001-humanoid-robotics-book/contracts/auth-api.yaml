@@ -1,0 +1,217 @@
+openapi: 3.0.0
+info:
+  title: Authentication API
+  description: API for user authentication and profile management in the Physical AI & Humanoid Robotics Book system
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000/api
+    description: Local development server
+
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      description: Creates a new user account with onboarding questionnaire data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistration'
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          description: Invalid input data
+        '409':
+          description: User with email already exists
+
+  /auth/login:
+    post:
+      summary: User login
+      description: Authenticates user and returns session token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid credentials
+
+  /auth/profile:
+    get:
+      summary: Get user profile
+      description: Retrieves the authenticated user's profile information
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User profile retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          description: Unauthorized
+
+    put:
+      summary: Update user profile
+      description: Updates the authenticated user's profile information
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: Profile updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          description: Unauthorized
+
+components:
+  schemas:
+    UserRegistration:
+      type: object
+      required:
+        - email
+        - password
+        - first_name
+        - last_name
+        - software_background
+        - hardware_background
+        - robotics_experience
+      properties:
+        email:
+          type: string
+          format: email
+          description: User's email address
+        password:
+          type: string
+          format: password
+          description: User's password
+        first_name:
+          type: string
+          description: User's first name
+        last_name:
+          type: string
+          description: User's last name
+        software_background:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+          description: User's software background level
+        hardware_background:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+          description: User's hardware background level
+        robotics_experience:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+          description: User's robotics experience level
+
+    UserLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+
+    UserUpdate:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: User's first name
+        last_name:
+          type: string
+          description: User's last name
+        software_background:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+          description: User's software background level
+        hardware_background:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+          description: User's hardware background level
+        robotics_experience:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+          description: User's robotics experience level
+        personalization_level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+          description: User's preferred personalization level
+
+    UserResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        software_background:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+        hardware_background:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+        robotics_experience:
+          type: string
+          enum: [beginner, intermediate, advanced, none]
+        personalization_level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    LoginResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: JWT access token
+        token_type:
+          type: string
+          default: bearer
+        user:
+          $ref: '#/components/schemas/UserResponse'
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

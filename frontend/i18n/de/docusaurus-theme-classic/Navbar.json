@@ -1,0 +1,22 @@
+{
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Sprachen",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "translation.button.label": {
+    "message": "Übersetzen",
+    "description": "The label for the translation button"
+  },
+  "translation.dropdown.label": {
+    "message": "Sprache auswählen",
+    "description": "The label for the language selection dropdown"
+  },
+  "translation.status.translated": {
+    "message": "Inhalt übersetzt in {language}",
+    "description": "Status message when content is translated"
+  },
+  "translation.status.original": {
+    "message": "Verwendung der Originalsprache",
+    "description": "Status message when using original language"
+  }
+}

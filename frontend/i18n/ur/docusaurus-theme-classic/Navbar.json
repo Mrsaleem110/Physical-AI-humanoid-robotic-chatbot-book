@@ -1,0 +1,22 @@
+{
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "زبانیں",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "translation.button.label": {
+    "message": "ترجمہ کریں",
+    "description": "The label for the translation button"
+  },
+  "translation.dropdown.label": {
+    "message": "زبان منتخب کریں",
+    "description": "The label for the language selection dropdown"
+  },
+  "translation.status.translated": {
+    "message": "{language} میں ترجمہ کردہ مواد",
+    "description": "Status message when content is translated"
+  },
+  "translation.status.original": {
+    "message": "اصل زبان استعمال کر رہا ہے",
+    "description": "Status message when using original language"
+  }
+}
