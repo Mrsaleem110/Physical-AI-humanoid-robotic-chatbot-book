@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { authAPI } from '../api/auth';
 
 const UserContext = createContext();
 
@@ -16,28 +17,36 @@ export const UserProvider = ({ children }) => {
 
   // Check for existing user session on component mount
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setIsLoading(false);
+    const checkAuthStatus = () => {
+      const currentUser = authAPI.getCurrentUser();
+      if (currentUser) {
+        setUser(currentUser);
+      }
+      setIsLoading(false);
+    };
+
+    checkAuthStatus();
   }, []);
 
   const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData.user || userData);
+    // Store both user and token if provided
+    if (userData.token) {
+      localStorage.setItem('authToken', userData.token);
+    }
+    localStorage.setItem('currentUser', JSON.stringify(userData.user || userData));
   };
 
   const logout = () => {
+    authAPI.logout(); // This clears both user and token from localStorage
     setUser(null);
-    localStorage.removeItem('user');
   };
 
   const updateUserProfile = (profileData) => {
     if (user) {
       const updatedUser = { ...user, ...profileData };
       setUser(updatedUser);
-      localStorage.setItem('user', JSON.stringify(updatedUser));
+      localStorage.setItem('currentUser', JSON.stringify(updatedUser));
     }
   };
 

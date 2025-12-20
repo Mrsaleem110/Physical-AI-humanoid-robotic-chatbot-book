@@ -3,7 +3,7 @@ import { useTranslation } from '../contexts/TranslationContext';
 import { useLocation, useHistory } from '@docusaurus/router';
 
 const TranslateButton = () => {
-  const { isTranslating, currentLanguage, supportedLanguages, translatePage } = useTranslation();
+  const { isTranslating, currentLanguage, supportedLanguages, translatePage, isRTL } = useTranslation();
   const location = useLocation();
   const history = useHistory();
 
@@ -17,7 +17,10 @@ const TranslateButton = () => {
       if (pathParts[1] && supportedLanguages.some(lang => lang.code === pathParts[1])) {
         newPath = `/${targetLanguage}` + pathParts.slice(2).join('/');
       } else {
-        newPath = `/${targetLanguage}` + location.pathname;
+        // If current path doesn't start with a language code, just use the target language
+        newPath = location.pathname.startsWith(`/${targetLanguage}`) ?
+          location.pathname :
+          `/${targetLanguage}${location.pathname}`;
       }
 
       history.push(newPath);

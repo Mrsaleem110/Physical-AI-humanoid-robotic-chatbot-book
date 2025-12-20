@@ -27,3 +27,74 @@
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* RTL Support for Urdu and other RTL languages */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .container {
+  text-align: right;
+}
+
+html[dir="rtl"] .markdown h1,
+html[dir="rtl"] .markdown h2,
+html[dir="rtl"] .markdown h3,
+html[dir="rtl"] .markdown h4,
+html[dir="rtl"] .markdown h5,
+html[dir="rtl"] .markdown h6 {
+  text-align: right;
+}
+
+html[dir="rtl"] .hero__title,
+html[dir="rtl"] .hero__subtitle {
+  text-align: right;
+}
+
+html[dir="rtl"] .navbar__items--right {
+  margin-left: 0;
+  margin-right: auto;
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .navbar__toggle {
+  margin-left: 0.5rem;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .menu__list-item-collapsible .menu__icon {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] .pagination-nav__link--next {
+  text-align: left;
+  border-left: 1px solid var(--ifm-color-emphasis-300);
+  border-right: none;
+}
+
+html[dir="rtl"] .pagination-nav__link--prev {
+  text-align: right;
+  border-right: 1px solid var(--ifm-color-emphasis-300);
+  border-left: none;
+}
+
+/* Custom RTL styles for translation */
+html[dir="rtl"] .translate-button-container {
+  direction: rtl;
+}
+
+html[dir="rtl"] .dropdown__menu {
+  text-align: right;
+}
+
+html[dir="rtl"] .col {
+  float: right;
+}
+
+/* Additional RTL text styling */
+.rtl-text {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: embed;
+}

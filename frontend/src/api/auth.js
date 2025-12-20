@@ -1,5 +1,21 @@
-// Mock API for authentication (in a real implementation, this would connect to your backend)
+// Mock API for authentication with JWT token support (in a real implementation, this would connect to your backend)
 export const authAPI = {
+  // Helper function to create a mock JWT token
+  createMockToken(user) {
+    const payload = {
+      userId: user.id,
+      email: user.email,
+      name: user.name,
+      exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24), // 24 hours
+      iat: Math.floor(Date.now() / 1000)
+    };
+
+    // In a real implementation, this would be a proper JWT with signature
+    // For mock, we'll just base64 encode the payload
+    const tokenPayload = btoa(JSON.stringify(payload));
+    return `mock.jwt.header.${tokenPayload}.signature`;
+  },
+
   // Mock signup function
   async signup(userData) {
     // Simulate API call delay
@@ -21,10 +37,19 @@ export const authAPI = {
       preferredLearningStyle: userData.preferredLearningStyle,
     };
 
-    // Store user in localStorage
-    localStorage.setItem('currentUser', JSON.stringify(mockUser));
+    // Create a mock JWT token
+    const token = this.createMockToken(mockUser);
 
-    return { user: mockUser, success: true };
+    // Store user and token in localStorage
+    localStorage.setItem('currentUser', JSON.stringify(mockUser));
+    localStorage.setItem('authToken', token);
+
+    return {
+      user: mockUser,
+      token: token,
+      success: true,
+      message: 'Account created successfully'
+    };
   },
 
   // Mock login function
@@ -37,8 +62,20 @@ export const authAPI = {
     const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
       const user = JSON.parse(storedUser);
+      // In a real implementation, you would hash and compare passwords
       if (user.email === credentials.email) {
-        return { user, success: true };
+        // Create a new token for this login session
+        const token = this.createMockToken(user);
+
+        // Update the stored token
+        localStorage.setItem('authToken', token);
+
+        return {
+          user,
+          token,
+          success: true,
+          message: 'Login successful'
+        };
       }
     }
 
@@ -49,12 +86,51 @@ export const authAPI = {
   // Mock logout function
   logout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('authToken');
   },
 
   // Get current user from localStorage
   getCurrentUser() {
     const storedUser = localStorage.getItem('currentUser');
-    return storedUser ? JSON.parse(storedUser) : null;
+    const token = localStorage.getItem('authToken');
+
+    if (!storedUser || !token) {
+      return null;
+    }
+
+    const user = JSON.parse(storedUser);
+
+    // Verify token is not expired (for mock implementation)
+    try {
+      const tokenParts = token.split('.');
+      if (tokenParts.length === 3) {
+        const payload = JSON.parse(atob(tokenParts[1]));
+        const currentTime = Math.floor(Date.now() / 1000);
+
+        if (payload.exp && payload.exp < currentTime) {
+          // Token is expired, remove it
+          localStorage.removeItem('authToken');
+          localStorage.removeItem('currentUser');
+          return null;
+        }
+      }
+    } catch (e) {
+      console.error('Error parsing token:', e);
+      return null;
+    }
+
+    return user;
+  },
+
+  // Get current auth token
+  getAuthToken() {
+    return localStorage.getItem('authToken');
+  },
+
+  // Check if user is authenticated
+  isAuthenticated() {
+    const user = this.getCurrentUser();
+    return !!user;
   },
 
   // Update user profile

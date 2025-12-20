@@ -133,6 +133,13 @@ class TranslationService {
             element.setAttribute('data-original-text', originalText);
             element.setAttribute('data-translated', 'true');
             element.textContent = translatedText;
+
+            // Apply RTL class if the target language is RTL
+            if (this.isRTL(targetLanguage)) {
+              element.classList.add('rtl-text');
+            } else {
+              element.classList.remove('rtl-text');
+            }
           });
 
         translationPromises.push(promise);
@@ -141,6 +148,12 @@ class TranslationService {
 
     // Wait for all translations to complete
     await Promise.all(translationPromises);
+  }
+
+  // Helper method to determine if a language is RTL
+  isRTL(languageCode) {
+    const rtlLanguages = ['ur', 'ar', 'fa', 'he', 'ps', 'sd', 'ug', 'ku', 'ur', 'yi'];
+    return rtlLanguages.includes(languageCode.toLowerCase());
   }
 
   // Method to revert translations back to original text
@@ -188,6 +201,20 @@ export const TranslationProvider = ({ children }) => {
   const [translationService] = useState(() => new TranslationService());
   const [isTranslating, setIsTranslating] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('en');
+
+  // Function to get RTL status for a language
+  const isRTL = (languageCode) => {
+    const rtlLanguages = ['ur', 'ar', 'fa', 'he', 'ps', 'sd', 'ug', 'ku', 'ur', 'yi'];
+    return rtlLanguages.includes(languageCode.toLowerCase());
+  };
+
+  // Apply RTL/LTR direction to document
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = isRTL(currentLanguage) ? 'rtl' : 'ltr';
+    }
+  }, [currentLanguage]);
 
   // Function to get the current language from URL (for Docusaurus i18n)
   const getCurrentDocusaurusLanguage = () => {
@@ -286,9 +313,10 @@ export const TranslationProvider = ({ children }) => {
     translatePage,
     isTranslating,
     currentLanguage,
+    isRTL: isRTL(currentLanguage),
     supportedLanguages: [
-      { code: 'en', name: 'English' },
-      { code: 'ur', name: 'Urdu' }
+      { code: 'en', name: 'English', direction: 'ltr' },
+      { code: 'ur', name: 'Urdu', direction: 'rtl' }
     ],
   };
 

@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { authAPI } from '../api/auth';
 import { useUser } from '../contexts/UserContext';
+import { useHistory } from '@docusaurus/router';
 
 const AuthComponent = () => {
   const { login, logout, updateUserProfile } = useUser();
+  const history = useHistory();
+  const { siteConfig } = useDocusaurusContext();
+  const baseUrl = (siteConfig && siteConfig.baseUrl) ? siteConfig.baseUrl : '/';
   const [isLogin, setIsLogin] = useState(true);
   const [step, setStep] = useState(1); // 1: Auth, 2: Background questions
   const [formData, setFormData] = useState({
@@ -21,6 +26,32 @@ const AuthComponent = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  // If URL contains ?step=2 or the user is already logged in but missing profile,
+  // open the personalization/background questions automatically.
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('step') === '2') {
+          setIsLogin(false);
+          setStep(2);
+        }
+
+        // If a current user exists but appears to lack personalization, go to step 2
+        const currentUser = authAPI.getCurrentUser();
+        if (currentUser) {
+          const needsPersonalization = !currentUser.preferredLearningStyle || !currentUser.softwareExperience;
+          if (needsPersonalization) {
+            setIsLogin(false);
+            setStep(2);
+          }
+        }
+      }
+    } catch (e) {
+      // ignore URL parsing errors
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -48,10 +79,10 @@ const AuthComponent = () => {
           email: formData.email,
           password: formData.password
         });
-        login(response.user);
-        // Redirect to homepage after successful login
+        login(response); // Pass the full response which includes user and token
+        // Redirect to homepage after successful login using window navigation for reliability
         setTimeout(() => {
-          window.location.href = '/';
+          window.location.href = baseUrl;
         }, 1000); // 1 second delay to allow for UI feedback
       } else {
         // Signup - first create the account without background info
@@ -62,7 +93,8 @@ const AuthComponent = () => {
         };
 
         const response = await authAPI.signup(signupData);
-        login(response.user);
+        // Ensure the user context is updated immediately with the new user data
+        login(response); // Pass the full response which includes user and token
 
         // Move to background questions after successful signup
         setStep(2);
@@ -100,9 +132,9 @@ const AuthComponent = () => {
 
         alert('Profile information saved! You can now customize content in chapters.');
 
-        // Redirect to homepage after successful profile completion
+        // Redirect to homepage after successful profile completion using window navigation for reliability
         setTimeout(() => {
-          window.location.href = '/';
+          window.location.href = baseUrl;
         }, 1000); // 1 second delay to allow the alert to show
 
         // Reset form for potential future use
@@ -631,8 +663,8 @@ const AuthComponent = () => {
         <button
           type="button"
           onClick={() => {
-            // Redirect to homepage after completing profile
-            window.location.href = '/';
+            // Redirect to homepage after completing profile using window navigation for reliability
+            window.location.href = baseUrl;
           }}
           disabled={loading}
           style={{
