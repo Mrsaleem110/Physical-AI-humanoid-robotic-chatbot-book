@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useUser } from '../contexts/UserContext';
 import { Redirect } from '@docusaurus/router';
 import Layout from '@theme/Layout';
@@ -20,31 +20,31 @@ const LayoutWrapper = (props) => {
     }
   }
 
-  const isDocsPage = relativePath.startsWith('/docs/');
-  const isAuthPage = relativePath === '/auth';
-  const isHomePage = relativePath === '/';
+  const isAuthPage = relativePath === '/auth' || relativePath === `${baseUrl}auth`;
 
-  // Apply auth check only for docs pages (not the home page, as home page handles auth itself)
-  if (isDocsPage && !isAuthPage) {
-    if (isLoading) {
-      return (
-        <Layout title="Loading..." description="Please wait while we check your authentication status">
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '50vh',
-            fontSize: '18px'
-          }}>
-            Loading...
-          </div>
-        </Layout>
-      );
-    }
+  // Consider some paths as static/assets so we don't redirect them
+  const isStaticAsset = relativePath.startsWith('/static') || relativePath.startsWith('/img') || relativePath.endsWith('.ico') || relativePath.includes('.') || relativePath.startsWith('/assets');
 
-    if (!user) {
-      return <Redirect to={`${baseUrl}auth`} />;
-    }
+  // If checking auth status, show a loading page
+  if (isLoading) {
+    return (
+      <Layout title="Loading..." description="Checking authentication status">
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '50vh',
+          fontSize: '18px'
+        }}>
+          Loading...
+        </div>
+      </Layout>
+    );
+  }
+
+  // If user is not authenticated and visiting a non-auth, non-static page, redirect to /auth
+  if (!user && !isAuthPage && !isStaticAsset) {
+    return <Redirect to={`${baseUrl}auth`} />;
   }
 
   return props.children;
