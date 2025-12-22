@@ -1,17 +1,17 @@
 <!-- SYNC IMPACT REPORT
-Version change: N/A -> 1.0.0
+Version change: 1.0.0 -> 1.1.0
 Modified principles: N/A
-Added sections: All principles (I-VI), Technical Standards, Development Workflow, Governance
+Added sections: None
 Removed sections: None
 Templates requiring updates:
-  - .specify/templates/plan-template.md: ✅ Constitution Check section aligns with new principles
+  - .specify/templates/plan-template.md: ✅ Constitution Check section aligns with existing principles
   - .specify/templates/spec-template.md: ✅ No changes needed - general structure compatible
   - .specify/templates/tasks-template.md: ✅ No changes needed - task organization structure compatible
   - .claude/commands/sp.constitution.md: ✅ No changes needed - command structure unchanged
 Follow-up TODOs: None
 -->
 
-# Humanoid Chatbot Book Constitution
+# Physical AI & Humanoid Robotics Platform Constitution
 
 ## Core Principles
 
@@ -44,4 +44,4 @@ This constitution supersedes all other development practices; Amendments require
 
 Constitution serves as the ultimate authority for technical decisions; Changes to core principles require explicit justification and approval; Use this document as the primary guidance for development decisions.
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-11 | **Last Amended**: 2025-12-11
+**Version**: 1.1.0 | **Ratified**: 2025-12-11 | **Last Amended**: 2025-12-21

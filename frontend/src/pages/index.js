@@ -6,7 +6,6 @@ import { Redirect } from '@docusaurus/router';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import FloatingChatbot from '@site/src/components/FloatingChatbot';
-import TranslateButton from '@site/src/components/TranslateButton';
 import { useUser } from '@site/src/contexts/UserContext';
 
 import styles from './index.module.css';
@@ -118,14 +117,6 @@ export default function Home() {
           <HomepageFeatures />
         </main>
         <FloatingChatbot />
-        <div style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          zIndex: 1000,
-        }}>
-          <TranslateButton />
-        </div>
       </Layout>
     );
   }

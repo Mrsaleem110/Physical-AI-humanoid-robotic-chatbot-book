@@ -1,0 +1,209 @@
+{
+  "property.docusaurusTagline": {
+    "message": "물리적 AI와 휴머노이드 로보틱스를 위한 차세대 웹 북. 전문가, 연구자 및 미래 혁신가를 위한 현대적인 학습 경험을 설계했습니다.",
+    "description": "The description in the site's header meta"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "에러가 발생했습니다.",
+    "description": "The title of the 500 error page"
+  },
+  "theme.ErrorPageContent.paragraph": {
+    "message": "페이지를 불러오는 중 문제가 발생했습니다.",
+    "description": "The paragraph of the 500 error page"
+  },
+  "theme.NotFound.title": {
+    "message": "페이지를 찾을 수 없습니다.",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "요청하신 페이지를 찾을 수 없습니다.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "사이트 관리자에게 링크가 깨졌는지 문의해 주세요.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.admonition.note": {
+    "message": "참고",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "팁",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.danger": {
+    "message": "위험",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "정보",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.caution": {
+    "message": "주의",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "탐색",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "사이드바 확장",
+    "description": "The ARIA label for the expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "사이드바 축소",
+    "description": "The ARIA label for the collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "사이드바 축소",
+    "description": "The title attribute for the collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "문서 사이드바",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "사이드바 닫기",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← 메인 메뉴로 돌아가기",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "버전",
+    "description": "The label for the versions dropdown on mobile view"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "언어",
+    "description": "The label for the language dropdown on mobile view"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "홈",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "페이지 경로",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} 항목",
+    "description": "The default description for a category card"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "버전: {versionLabel}"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "하나의 문서|{count}개의 문서",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{tagTitle}로 태그된 {nDocsTagged}",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "{siteTitle} {versionLabel} 문서는 아직 정식 공개되지 않았습니다.",
+    "description": "The label used for unreleased documentation version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "{siteTitle} {versionLabel} 문서는 더 이상 업데이트되지 않습니다.",
+    "description": "The label used for unmaintained documentation version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "최신 문서는 {latestVersionLink} ({versionLabel})을 참조하세요.",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "최신 버전",
+    "description": "The label used for the latest version link"
+  },
+  "theme.common.editThisPage": {
+    "message": "이 페이지 편집",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "제목으로 링크",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " {date}에",
+    "description": "The words used to describe on which date a page was last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " {user}에 의해",
+    "description": "The words used to describe by who the page was last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "마지막 업데이트{atDate}{byUser}",
+    "description": "The sentence used to display when a page was last updated, and by who"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "메인 콘텐츠로 건너뛰기",
+    "description": "The skip to content link label"
+  },
+  "theme.navbar.mobileSidebarMenuButtonAriaLabel": {
+    "message": "메뉴 열기",
+    "description": "The ARIA label for the mobile menu button"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "이 페이지에서",
+    "description": "The ARIA label and text for the TOC collapsible toggle button"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "복사됨",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "코드 복사",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "복사",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "줄 바꿈 토글",
+    "description": "The title attribute for word wrap toggle"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "사이드바 토글",
+    "description": "The ARIA label for the sidebar toggle button"
+  },
+  "theme.docs.sidebar.docSidebarItems.expandCategoryAriaLabel": {
+    "message": "확장 {label}",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.docs.sidebar.docSidebarItems.collapseCategoryAriaLabel": {
+    "message": "축소 {label}",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.navbar.searchBar": {
+    "message": "검색",
+    "description": "Placeholder for the search bar"
+  },
+  "theme.navbar.searchBarLabel": {
+    "message": "검색",
+    "description": "Aria label for the search bar"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "어두운 모드/밝은 모드 토글 (현재 {mode})",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "어두운 모드",
+    "description": "The ARIA label for the dark color mode toggle in dark mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "밝은 모드",
+    "description": "The ARIA label for the light color mode toggle in light mode"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "사이드바 확장",
+    "description": "The title attribute for expand button of doc sidebar"
+  },
+  "translation.korean": {
+    "message": "한국어",
+    "description": "Korean language name"
+  }
+}

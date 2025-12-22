@@ -1,0 +1,126 @@
+{
+  "navbar.logo.alt": {
+    "message": "Agentic Sphere 로고",
+    "description": "The alt text of navbar logo"
+  },
+  "navbar.logo.unreadNotifications": {
+    "message": "{count}개의 읽지 않은 알림이 있습니다.",
+    "description": "The title attribute for the navbar logo with the number of unread notifications"
+  },
+  "navbar.navAriaLabel": {
+    "message": "기본 탐색",
+    "description": "The ARIA label for the main navigation"
+  },
+  "navbar.sidebar.title": {
+    "message": "메뉴",
+    "description": "The title of the navbar sidebar"
+  },
+  "navbar.sidebar.toggleAriaLabel": {
+    "message": "탐색 사이드바 토글",
+    "description": "The ARIA label for navbar sidebar toggle"
+  },
+  "navbar.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "사이드바 닫기",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "navbar.search.openAppAriaLabel": {
+    "message": "검색 열기",
+    "description": "The ARIA label for search button"
+  },
+  "navbar.search.openShortcutsAriaLabel": {
+    "message": "검색 단축키 열기",
+    "description": "The ARIA label for search shortcuts button"
+  },
+  "navbar.search.inputPlaceholder": {
+    "message": "검색",
+    "description": "The placeholder of the input of the DocSearch search button"
+  },
+  "navbar.search.inputAriaLabel": {
+    "message": "검색",
+    "description": "The ARIA label for the input of the DocSearch search button"
+  },
+  "navbar.search.cancelButtonAriaLabel": {
+    "message": "취소",
+    "description": "The ARIA label for the DocSearch results dropdown"
+  },
+  "navbar.search.devWarning": {
+    "message": "검색이 제대로 작동하려면 프로덕션 빌드가 필요합니다. 로컬에서 검색을 테스트하려면 'npm run build && npm run serve'를 실행하세요.",
+    "description": "The text shown in the search box to warn the user he is in dev mode"
+  },
+  "navbar.search.noResultsText": {
+    "message": "결과가 없습니다.",
+    "description": "The text shown in the search box when there are no results"
+  },
+  "navbar.search.truncate.unexpectedEndOfComment": {
+    "message": "의도치 않게 주석이 끝났습니다.",
+    "description": "Error message when the search query has an unexpected end of comment"
+  },
+  "navbar.search.truncate.unexpectedEndOfString": {
+    "message": "의도치 않게 문자열이 끝났습니다.",
+    "description": "Error message when the search query has an unexpected end of string"
+  },
+  "navbar.search.truncate.unexpectedEndOfEscape": {
+    "message": "의도치 않게 이스케이프 문자가 끝났습니다.",
+    "description": "Error message when the search query has an unexpected end of escape"
+  },
+  "navbar.search.truncate.unexpectedEndOfExact": {
+    "message": "의도치 않게 정확한 검색이 끝났습니다.",
+    "description": "Error message when the search query has an unexpected end of exact match"
+  },
+  "navbar.search.filters.panelTitle": {
+    "message": "필터",
+    "description": "The title of the filters panel in the search bar"
+  },
+  "navbar.search.filters.resetButtonTitle": {
+    "message": "필터 재설정",
+    "description": "The title of the reset filters button in the search bar"
+  },
+  "navbar.search.filters.editButtonLabel": {
+    "message": "필터 편집",
+    "description": "The label of the edit filters button in the search bar"
+  },
+  "navbar.search.filters.selectedCount": {
+    "message": "{count}개 선택됨",
+    "description": "The text for the number of selected filters in the search bar"
+  },
+  "navbar.search.filters.closeButtonTitle": {
+    "message": "필터 닫기",
+    "description": "The title of the close filters button in the search bar"
+  },
+  "navbar.search.filters.headingCount": {
+    "message": "{count}개의 헤딩",
+    "description": "The text for the number of headings in the search bar"
+  },
+  "navbar.search.filters.headingLabel": {
+    "message": "헤딩",
+    "description": "The label for the headings filter in the search bar"
+  },
+  "navbar.search.filters.headingPlaceholder": {
+    "message": "헤딩 검색",
+    "description": "The placeholder for the headings filter in the search bar"
+  },
+  "navbar.search.filters.tagLabel": {
+    "message": "태그",
+    "description": "The label for the tags filter in the search bar"
+  },
+  "navbar.search.filters.tagPlaceholder": {
+    "message": "태그 검색",
+    "description": "The placeholder for the tags filter in the search bar"
+  },
+  "navbar.search.filters.versionLabel": {
+    "message": "버전",
+    "description": "The label for the version filter in the search bar"
+  },
+  "navbar.search.filters.versionPlaceholder": {
+    "message": "버전 선택",
+    "description": "The placeholder for the version filter in the search bar"
+  },
+  "navbar.search.filters.resetAllButton": {
+    "message": "모든 필터 재설정",
+    "description": "The label for the reset all filters button in the search bar"
+  },
+  "translation.korean": {
+    "message": "한국어",
+    "description": "Korean language name in navbar"
+  }
+}

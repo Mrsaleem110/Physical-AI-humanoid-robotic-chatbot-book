@@ -3,7 +3,8 @@
     "allow": [
       "Bash(dir /s /b)",
       "Bash(Get-ChildItem -Recurse)",
-      "Bash(Select-Object FullName)"
+      "Bash(Select-Object FullName)",
+      "Bash(git rev-parse --git-dir)"
     ]
   }
 }

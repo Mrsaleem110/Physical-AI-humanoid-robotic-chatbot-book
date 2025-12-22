@@ -98,3 +98,37 @@ html[dir="rtl"] .col {
   text-align: right;
   unicode-bidi: embed;
 }
+
+/* Language dropdown styles to match navbar */
+.react-language-dropdown {
+  display: inline-block;
+}
+
+.react-language-toggle {
+  background: transparent;
+  color: inherit;
+  border: 1px solid transparent;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.react-language-toggle:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+.react-language-menu .react-lang-item:hover {
+  background: #f6f8fa;
+}
+
+/* Small responsive adjustment for narrow screens */
+@media (max-width: 640px) {
+  .react-language-menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+}

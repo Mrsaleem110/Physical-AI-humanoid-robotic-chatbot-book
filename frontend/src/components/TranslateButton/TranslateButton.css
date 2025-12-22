@@ -1,0 +1,190 @@
+/* TranslateButton.css - Professional Design */
+
+.translate-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.translate-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.2), 0 1px 2px rgba(37, 99, 235, 0.12);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.translate-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.translate-button:hover::before {
+  left: 100%;
+}
+
+.translate-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25), 0 2px 4px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
+}
+
+.translate-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+}
+
+.translate-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.translate-button.active {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 1px 3px rgba(5, 150, 105, 0.2), 0 1px 2px rgba(5, 150, 105, 0.12);
+}
+
+.translate-button.active:hover:not(:disabled) {
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+  box-shadow: 0 4px 6px rgba(5, 150, 105, 0.25), 0 2px 4px rgba(5, 150, 105, 0.15);
+}
+
+.translate-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.translate-text {
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.translate-error {
+  padding: 0.875rem 1rem;
+  background: #fef2f2;
+  color: #991b1b;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  border-left: 4px solid #dc2626;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
+
+.translate-error::before {
+  content: '⚠️';
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* Urdu mode styles */
+.urdu-mode {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Segoe UI', serif !important;
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.urdu-mode h1,
+.urdu-mode h2,
+.urdu-mode h3,
+.urdu-mode h4,
+.urdu-mode h5,
+.urdu-mode h6 {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif !important;
+  direction: rtl !important;
+  text-align: right !important;
+  line-height: 2 !important;
+  font-weight: 600 !important;
+}
+
+.urdu-mode p,
+.urdu-mode li,
+.urdu-mode td,
+.urdu-mode th {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif !important;
+  direction: rtl !important;
+  text-align: right !important;
+  line-height: 2.2 !important;
+}
+
+/* Preserve code blocks in LTR */
+.urdu-mode pre,
+.urdu-mode code,
+.urdu-mode .prism-code,
+.urdu-mode [class*="language-"],
+.urdu-mode .token {
+  font-family: 'Courier New', 'Consolas', monospace !important;
+  direction: ltr !important;
+  text-align: left !important;
+  line-height: 1.5 !important;
+}
+
+.urdu-mode ul,
+.urdu-mode ol {
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+.urdu-mode li {
+  text-align: right;
+}
+
+.urdu-mode table {
+  direction: rtl;
+}
+
+.urdu-mode th,
+.urdu-mode td {
+  text-align: right;
+}
+
+.urdu-mode blockquote {
+  border-right: 4px solid var(--ifm-color-primary);
+  border-left: none;
+  padding-right: 1rem;
+  padding-left: 0;
+}
+
+/* Dark mode */
+[data-theme='dark'] .translate-error {
+  background: #450a0a;
+  color: #fca5a5;
+  border-left-color: #dc2626;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.translate-button:disabled .translate-icon {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

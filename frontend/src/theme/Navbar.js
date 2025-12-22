@@ -88,10 +88,16 @@ const NavbarWrapper = (props) => {
       }
     }
 
+
     setItems(updatedItems);
   }, [user, logout, props.items]);
 
-  return <Navbar {...props} items={items} />;
+  return (
+    <Navbar {...props} items={items} />
+  );
 };
 
+export { NavbarWrapper };
+
+// Render the Navbar and a floating translate button so it's available site-wide
 export default NavbarWrapper;

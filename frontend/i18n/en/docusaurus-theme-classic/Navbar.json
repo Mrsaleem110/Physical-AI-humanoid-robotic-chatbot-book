@@ -18,5 +18,25 @@
   "translation.status.original": {
     "message": "Using original language",
     "description": "Status message when using original language"
+  },
+  "title": {
+    "message": "Agentic Sphere",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Agentic Sphere Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Book": {
+    "message": "Book",
+    "description": "Navbar item with label Book"
+  },
+  "item.label.Sign In": {
+    "message": "Sign In",
+    "description": "Navbar item with label Sign In"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
   }
 }

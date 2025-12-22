@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "현재",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Getting Started": {
+    "message": "시작하기",
+    "description": "The label for category Getting Started in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Interactive Features": {
+    "message": "인터랙티브 기능",
+    "description": "The label for category Interactive Features in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Module 1: Introduction to ROS 2": {
+    "message": "모듈 1: ROS 2 소개",
+    "description": "The label for category Module 1: Introduction to ROS 2 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Module 2: Physics Simulation": {
+    "message": "모듈 2: 물리 시뮬레이션",
+    "description": "The label for category Module 2: Physics Simulation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Module 3: Perception and Navigation": {
+    "message": "모듈 3: 지각 및 내비게이션",
+    "description": "The label for category Module 3: Perception and Navigation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Module 4: Cognitive Systems": {
+    "message": "모듈 4: 인지 시스템",
+    "description": "The label for category Module 4: Cognitive Systems in sidebar tutorialSidebar"
+  }
+}
