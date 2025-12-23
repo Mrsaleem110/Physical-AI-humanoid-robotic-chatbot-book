@@ -3,6 +3,8 @@
 ## Overview
 This project is configured for deployment to GitHub Pages using GitHub Actions. The site is built using Docusaurus and automatically deployed when changes are pushed to the main branch.
 
+Last updated: December 23, 2025
+
 ## How It Works
 1. Source code is in the `frontend/` directory
 2. GitHub Actions workflow (`.github/workflows/deploy.yml`) builds the site on every push to main

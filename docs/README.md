@@ -2,6 +2,8 @@
 
 This directory contains the built Docusaurus site for the Physical AI & Humanoid Robotics Book, deployed via GitHub Pages.
 
+Last updated: December 23, 2025
+
 ## Deployment Process
 
 The site is automatically deployed using GitHub Actions when changes are pushed to the `main` branch. Here's how the process works:
