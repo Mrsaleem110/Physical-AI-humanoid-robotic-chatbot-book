@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical AI and Humanoid Robotics Book - Urdu Translation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.8;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        p {
+            color: #333;
+            font-size: 16px;
+        }
+        .chapter-intro {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        #translate-button-mount {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 10px;
+        }
+        .nav-links {
+            margin-top: 30px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #2980b9;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="translate-button-mount"></div>
+
+        <h1>Physical AI and Humanoid Robotics: Comprehensive Guide</h1>
+
+        <div class="chapter-intro">
+            <h2>Module 1: The Robotic Nervous System (ROS 2)</h2>
+            <p>Welcome to the first module of our comprehensive guide to Physical AI and Humanoid Robotics. This module will introduce you to Robot Operating System 2 (ROS 2), which serves as the communication backbone for complex robotic systems.</p>
+        </div>
+
+        <h2>Introduction to ROS 2</h2>
+        <p>ROS 2 (Robot Operating System 2) is a flexible framework for writing robot software. It's a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robot platforms.</p>
+
+        <h3>Key Concepts</h3>
+        <p>Understanding the fundamental concepts of ROS 2 is crucial for developing humanoid robots:</p>
+        <ul>
+            <li><strong>Middleware</strong>: ROS 2 uses DDS (Data Distribution Service) as its communication middleware</li>
+            <li><strong>Packages</strong>: Organize code and resources into reusable units</li>
+            <li><strong>Nodes</strong>: Processes that perform computation</li>
+            <li><strong>Topics</strong>: Named buses over which nodes exchange messages</li>
+            <li><strong>Services</strong>: Synchronous request/reply communication</li>
+            <li><strong>Actions</strong>: Goal-oriented communication with feedback</li>
+        </ul>
+
+        <h3>Why ROS 2 for Humanoid Robots?</h3>
+        <p>Humanoid robots require complex coordination between multiple subsystems:</p>
+        <ul>
+            <li>Motor control systems</li>
+            <li>Sensor processing</li>
+            <li>Perception modules</li>
+            <li>Planning and control</li>
+            <li>Human-robot interaction</li>
+        </ul>
+        <p>ROS 2 provides the infrastructure to connect these subsystems efficiently while maintaining modularity.</p>
+
+        <h2>Setting Up ROS 2</h2>
+        <h3>Installation</h3>
+        <div class="code-block">
+            <p># Update package lists<br>
+            sudo apt update<br><br>
+            # Install ROS 2 Iron (latest LTS)<br>
+            sudo apt install software-properties-common<br>
+            sudo add-apt-repository universe<br>
+            sudo apt update<br>
+            sudo apt install ros-iron-desktop<br>
+            sudo apt install ros-dev-tools</p>
+        </div>
+
+        <h3>Environment Setup</h3>
+        <div class="code-block">
+            <p># Source ROS 2 environment<br>
+            source /opt/ros/iron/setup.bash<br><br>
+            # Add to your bashrc to source automatically<br>
+            echo "source /opt/ros/iron/setup.bash" >> ~/.bashrc</p>
+        </div>
+
+        <h2>Creating Your First Workspace</h2>
+        <h3>Workspace Structure</h3>
+        <div class="code-block">
+            <p># Create workspace directory<br>
+            mkdir -p ~/ros2_ws/src<br>
+            cd ~/ros2_ws<br><br>
+            # Build the workspace<br>
+            colcon build<br><br>
+            # Source the workspace<br>
+            source install/setup.bash</p>
+        </div>
+
+        <h3>Creating a Package</h3>
+        <div class="code-block">
+            <p>cd ~/ros2_ws/src<br>
+            ros2 pkg create --build-type ament_python my_robot_package</p>
+        </div>
+
+        <h2>The Robotic Nervous System</h2>
+        <p>Think of ROS 2 as the nervous system of your robot:</p>
+        <ul>
+            <li><strong>Sensory Input</strong>: Sensors publish data to topics (like sensory neurons)</li>
+            <li><strong>Processing Centers</strong>: Nodes process information and make decisions (like the brain)</li>
+            <li><strong>Motor Output</strong>: Actuators receive commands from services/actions (like motor neurons)</li>
+            <li><strong>Communication Pathways</strong>: Topics, services, and actions serve as neural pathways</li>
+        </ul>
+
+        <h2>Hands-On Exercise</h2>
+        <ol>
+            <li>Create a new ROS 2 workspace</li>
+            <li>Create a simple package</li>
+            <li>Verify your installation with <code>ros2 topic list</code></li>
+        </ol>
+
+        <h2>Summary</h2>
+        <p>ROS 2 provides the foundational communication infrastructure for humanoid robots. Understanding its architecture is crucial for building complex robotic behaviors. In the next chapter, we'll explore nodes, topics, and services in detail.</p>
+
+        <h2>Learning Path Adjustment</h2>
+        <p>Based on your experience level, you may want to focus on:</p>
+        <ul>
+            <li><strong>Beginner</strong>: Focus on installation and basic workspace creation</li>
+            <li><strong>Intermediate</strong>: Dive deeper into package structure and build systems</li>
+            <li><strong>Advanced</strong>: Explore different DDS implementations and real-time considerations</li>
+        </ul>
+
+        <div class="nav-links">
+            <a href="#previous">Previous Chapter</a>
+            <a href="#next">Next Chapter</a>
+            <a href="#table-of-contents">Table of Contents</a>
+        </div>
+    </div>
+
+    <script src="frontend/static/js/translate-button.js"></script>
+</body>
+</html>

@@ -79,9 +79,36 @@ html[dir="rtl"] .pagination-nav__link--prev {
   border-left: none;
 }
 
-/* Custom RTL styles for translation */
+/* Custom RTL styles for translation - ensure button remains visible */
 html[dir="rtl"] .translate-button-container {
-  direction: rtl;
+  direction: ltr; /* Keep button LTR to avoid layout issues */
+  z-index: 9999 !important;
+}
+
+/* Ensure translate button remains visible in all contexts */
+.translate-button,
+.translate-button-visible {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 9999 !important;
+}
+
+.translate-button-container {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 9999 !important;
+}
+
+/* Override any potential hiding by other CSS */
+#translate-btn {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 9999 !important;
 }
 
 html[dir="rtl"] .dropdown__menu {
